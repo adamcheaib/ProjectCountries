@@ -11,20 +11,22 @@
       shows three random images from all the possible country images.
 
 */
+console.log(create_filter_element({ tag: "div", parent: "#wrapper", klass: "lolo" })
+);
 
 
 
 // Create Filter Elements
-create_levels_filter();
-create_subjects_filter();
-create_language_filter();
-create_countries_cities_filters();
+// create_levels_filter();
+// create_subjects_filter();
+// create_language_filter();
+// create_countries_cities_filters();
 
-// Add Interaction of search field button
-document.querySelector("#search_field button").addEventListener("click", update_programmes);
+// // Add Interaction of search field button
+// document.querySelector("#search_field button").addEventListener("click", update_programmes);
 
-// Initialise programmes list by calling relevant function
-update_programmes();
+// // Initialise programmes list by calling relevant function
+// update_programmes();
 
 
 // VG
