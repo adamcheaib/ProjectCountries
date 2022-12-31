@@ -12,8 +12,11 @@
 
 */
 
-create_filter_element({ tag: "button", parent: "#wrapper", class: "selected", content: "hello world" })
+for (let i = 0; i < 2; i++) {
+  create_filter_element({ tag: "button", parent: "#wrapper", class: "selected", content: COUNTRIES[i].name })
+  create_filter_element({ tag: "button", parent: "#wrapper", class: "unselected", content: COUNTRIES[i].name })
 
+}
 
 // Create Filter Elements
 // create_levels_filter();

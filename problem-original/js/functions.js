@@ -8,11 +8,16 @@ function click_filter_element(event) {
 
 
   function f1() {
-    event.classList.toggle(classes[0]);
-    event.classList.toggle(classes[1])
+    for (let i = 0; i < event.classList.length; i++) {
+      if (event.classList[i] === classes[0]) {
+        event.classList.toggle(classes[1])
+      };
+
+      if (event.classList[i] === classes[1]) {
+        event.classList.toggle(classes[0])
+      };
+    }
   };
-
-
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
@@ -193,6 +198,8 @@ function create_language_filter() {
 // G / VG (see details in specification)
 // CODE according to specifications
 function create_programme(programme) {
+
+
 
   /*
 
