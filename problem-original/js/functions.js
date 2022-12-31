@@ -8,21 +8,8 @@ function click_filter_element(event) {
 
 
   function f1() {
-
-    for (let i = 0; i < classes.length; i++) {
-
-      event.classList.toggle[classes[0]];
-      event.classList.toggle[classes[1]]
-
-      // if (event.classList[i] === classes[0]) {
-      //   event.classList.toggle(classes[1])
-      // };
-
-      // if (event.classList[i] === classes[1]) {
-      //   event.classList.toggle(classes[0]);
-      // };
-
-    }
+    event.classList.toggle(classes[0]);
+    event.classList.toggle(classes[1])
   };
 
 
@@ -60,27 +47,25 @@ function create_filter_element(data) {
   return create_tag
 }
 
-  /*
-    ARGUMENTS
-      data: object that contains the following keys:
-        class (string): a class-name given to the created element
-        textContent (string): the text that the element contains
-        parent (reference to HTML-element): the HTML-element that is the parent of the created element
+/*
+  ARGUMENTS
+    data: object that contains the following keys:
+      class (string): a class-name given to the created element
+      textContent (string): the text that the element contains
+      parent (reference to HTML-element): the HTML-element that is the parent of the created element
 
-      No control of arguments.
+    No control of arguments.
 
-    SIDE-EFFECTS
-      Creates a new dom-element with the tag "li".
-      Gives the new dom-element the class contained in data.class
-      Appends the new dom-element to the element referenced in data.parent
-      Sets the text content of the new dom-element to data.textContent
-      Sets the function click_filter_element as a listener to "click" for the new dom-element
+  SIDE-EFFECTS
+    Creates a new dom-element with the tag "li".
+    Gives the new dom-element the class contained in data.class
+    Appends the new dom-element to the element referenced in data.parent
+    Sets the text content of the new dom-element to data.textContent
+    Sets the function click_filter_element as a listener to "click" for the new dom-element
 
-    RETURN VALUE
-      Returns a reference to the new dom-element
-  */
-
-}
+  RETURN VALUE
+    Returns a reference to the new dom-element
+*/
 
 
 // VG

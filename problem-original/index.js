@@ -12,6 +12,8 @@
 
 */
 
+create_filter_element({ tag: "button", parent: "#wrapper", class: "selected", content: "hello world" })
+
 
 // Create Filter Elements
 // create_levels_filter();
