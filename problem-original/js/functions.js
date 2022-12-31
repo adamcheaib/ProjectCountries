@@ -1,4 +1,3 @@
-
 // G
 // CODE According to specification
 function click_filter_element(event) {
@@ -22,13 +21,17 @@ function click_filter_element(event) {
 }
 
 
+
 // G
 // CODE according to specification
 function create_filter_element(data) {
+  // FUNGERAR!!!
   let create_tag = document.createElement(data.tag);
   let parent = document.querySelector(data.parent);
-  let class_adder = create_tag.classList.add(data.klass)
+  create_tag.classList.add(data.class)
+  create_tag.textContent = data.content
   parent.appendChild(create_tag);
+  click_filter_element(create_tag)
   return create_tag
 }
 /*
@@ -60,15 +63,15 @@ function add_group_toggling(filter_container_dom) {
     ARGUMENT
       filter_container_dom: reference to a HTML-element that contains a set of fliter_elements
             Exempel: the <ul> that contains the filters for Language.
-
+ 
     SIDE EFFECTS
       The function makes sure that when the user clicks on filter_container_dom, all the
       filter_elements that it contains are selected / unselected.
       Since some filter elements will have changed after the click, the list of
       programmes must be updated.
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
 }
@@ -79,17 +82,17 @@ function add_group_toggling(filter_container_dom) {
 function toggle_cities(event) {
 
   /*
-
+ 
     ARGUMENTS
       This function does not take any arguments
-
+ 
     SIDE EFFECTS
       This function checks the state of the first city-filter-element (Madrid).
       If it is selected then it de-selects ALL city-filter-elements
       If it is de-selected then it selects ALL city-filter-elements 
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
 }
@@ -179,10 +182,10 @@ function create_language_filter() {
 function create_programme(programme) {
 
   /*
-
+ 
     ARGUMENT
       programme (object): One of the objects from PROGRAMMES
-
+ 
     SIDE-EFFECTS
       This function creates the HTML-element that contains all the information
       about one programme, as seen in the video / image.
@@ -190,13 +193,13 @@ function create_programme(programme) {
       VG: The background image is a random image from among the images of the city
           in which the programme is (via the university)
       G:  No background image required.
-
-
+ 
+ 
       VG: The "see more" interaction must be included.
       G:  The "see more" element is not required. And that information needs not be in place.
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
 }
@@ -208,16 +211,16 @@ function update_programmes() {
 
   /*
       NO ARGUMENTS
-
+ 
       SIDE EFFECTS
         This function updates the programmes shown on the page according to
         the current filter status (which filter elements are selected / unselected).
         It uses the function read_filters to know which programmes need to be included.
-
+ 
         VG: The top images (header) need to be updated here
-
+ 
       NO RETURN VALUE
-
+ 
   */
 
 }
