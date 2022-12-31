@@ -49,6 +49,17 @@ function click_filter_element(event) {
 // CODE according to specification
 function create_filter_element(data) {
 
+
+  // FUNGERAR!!!
+  let create_tag = document.createElement(data.tag);
+  let parent = document.querySelector(data.parent);
+  create_tag.classList.add(data.class)
+  create_tag.textContent = data.content
+  parent.appendChild(create_tag);
+  click_filter_element(create_tag)
+  return create_tag
+}
+
   /*
     ARGUMENTS
       data: object that contains the following keys:
