@@ -1,7 +1,7 @@
 
 // G
 // CODE According to specification
-function click_filter_element (event) {
+function click_filter_element(event) {
 
   /*
     ARGUMENTS
@@ -18,13 +18,13 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-  
+
 }
 
 
 // G
 // CODE according to specification
-function create_filter_element (data) {
+function create_filter_element(data) {
 
   /*
     ARGUMENTS
@@ -51,7 +51,7 @@ function create_filter_element (data) {
 
 // VG
 // CODE according to specification
-function add_group_toggling (filter_container_dom) {
+function add_group_toggling(filter_container_dom) {
 
   /*
     ARGUMENT
@@ -67,13 +67,13 @@ function add_group_toggling (filter_container_dom) {
     NO RETURN VALUE
 
   */
-  
+
 }
 
 
 // VG
 // CODE according to specifications
-function toggle_cities (event) {
+function toggle_cities(event) {
 
   /*
 
@@ -95,53 +95,45 @@ function toggle_cities (event) {
 // WRITE SPECIFICATION
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
-function create_countries_cities_filters () {
-  function create_country (country) {
+function create_countries_cities_filters() {
+  function create_country(country) {
+    /*    Create_country funktionen
+    1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
+    2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" och "filter_container".
+    3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). Hade jag t.ex valt COUNTRIES[0] 
+        så hade div:en fått ID-nummer 0 eftersom första objektet i COUNTRIES-array är Spanien som har nyckeln id: 0.
+    4. Funktionen sedan appendar det nya DOM-elementet som barn till en <ul> som  är barn till #country_filters i HTML-filen.
+    5. Funktionen lägger till två element inuti det nya DOM-elementet. I detta fallet så läggs till en <h1> och en <ul> inuti. H1:ans innehåll blir det samma som nyckeln "name" i 
+        objektet som man har gett som argument. <ul> som har skapats inuti får classen "filter_list".
+    6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
+        är CITIES och test_function som deklareras inuti funktionen array_filters.
+    */
     const dom = document.createElement("div");
     dom.classList.add("country");
     dom.classList.add("filter_container");
     dom.id = "country_" + country.id;
     document.querySelector("#country_filter > ul").append(dom);
-    
+
     dom.innerHTML = `
       <h1>${country.name}</h1>
       <ul class="filter_list"></ul>
     `;
-<<<<<<< Updated upstream
-    
-=======
 
-
->>>>>>> Stashed changes
     const cities = array_filter(CITIES, test_function);
-    function test_function (city) {
+    function test_function(city) {
       return city.countryID === country.id;
     }
 
     array_each(cities, create_city);
   }
-<<<<<<< Updated upstream
-  function create_city (city) {
-=======
-
-  /* 
-   
-        Create_country funktionen
-  1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
-  2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" och "filter_container".
-  3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). Hade jag t.ex valt COUNTRIES[0] 
-      så hade div:en fått ID-nummer 0 eftersom första objektet i COUNTRIES-array är Spanien som har nyckeln id: 0.
-  4. Funktionen sedan appendar det nya DOM-elementet som barn till en <ul> som  är barn till #country_filters i HTML-filen.
-  5. Funktionen lägger till två element inuti det nya DOM-elementet. I detta fallet så läggs till en <h1> och en <ul> inuti. H1:ans innehåll blir det samma som nyckeln "name" i 
-      objektet som man har gett som argument. <ul> som har skapats inuti får classen "filter_list".
-  6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
-      är CITIES och test_function som deklareras inuti funktionen array_filters.
-  */
-
-
 
   function create_city(city) {
->>>>>>> Stashed changes
+    /*
+            Create_city funktionen
+      test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten som
+          har använts i create_country och i test_function har var sin nyckel som har samma värde.
+      8. 
+      */
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
@@ -155,20 +147,14 @@ function create_countries_cities_filters () {
   array_each(COUNTRIES, create_country);
 }
 
-/*
-        Create_city funktionen
-  test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten som
-      har använts i create_country och i test_function har var sin nyckel som har samma värde.
-  8. 
-  */
 
 
 // G
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter () {
-  function create_level (level) {
+function create_levels_filter() {
+  function create_level(level) {
     const dom = create_filter_element({
       parent: document.querySelector("#level_filter > ul"),
       class: "selected",
@@ -179,8 +165,8 @@ function create_levels_filter () {
   array_each(LEVELS, create_level);
 }
 // Create Subjects Filter
-function create_subjects_filter () {
-  function create_subject (subject) {
+function create_subjects_filter() {
+  function create_subject(subject) {
     const dom = create_filter_element({
       parent: document.querySelector("#subject_filter > ul"),
       class: "selected",
@@ -191,8 +177,8 @@ function create_subjects_filter () {
   array_each(SUBJECTS, create_subject);
 }
 // Create Search Field
-function create_language_filter () {
-  function create_element (data) {
+function create_language_filter() {
+  function create_element(data) {
     const dom = create_filter_element({
       parent: document.querySelector("#language_filter > ul"),
       class: "selected",
@@ -206,13 +192,13 @@ function create_language_filter () {
 
 // G / VG (see details in specification)
 // CODE according to specifications
-function create_programme (programme) {
-  
-  /*
+function create_programme(programme) {
 
+  /*
+ 
     ARGUMENT
       programme (object): One of the objects from PROGRAMMES
-
+ 
     SIDE-EFFECTS
       This function creates the HTML-element that contains all the information
       about one programme, as seen in the video / image.
@@ -220,34 +206,34 @@ function create_programme (programme) {
       VG: The background image is a random image from among the images of the city
           in which the programme is (via the university)
       G:  No background image required.
-
-
+ 
+ 
       VG: The "see more" interaction must be included.
       G:  The "see more" element is not required. And that information needs not be in place.
-
+ 
     NO RETURN VALUE
-
-  */  
+ 
+  */
 
 }
 
 
 // G
 // CODE according to the specification
-function update_programmes () {
+function update_programmes() {
 
   /*
       NO ARGUMENTS
-
+ 
       SIDE EFFECTS
         This function updates the programmes shown on the page according to
         the current filter status (which filter elements are selected / unselected).
         It uses the function read_filters to know which programmes need to be included.
-
+ 
         VG: The top images (header) need to be updated here
-
+ 
       NO RETURN VALUE
-
+ 
   */
 
 }
@@ -260,12 +246,12 @@ function update_programmes () {
 
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
-function read_filters () {
-  
+function read_filters() {
+
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
 
   const city_id_selected = [];
-  function callback_add_cityID (dom_element) {
+  function callback_add_cityID(dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     city_id_selected.push(id_as_integer);
   }
@@ -283,7 +269,7 @@ function read_filters () {
   }
 
   let programmes = [];
-  function callback_add_programmes (university) {
+  function callback_add_programmes(university) {
     const university_id = university.id;
     for (let i = 0; i < PROGRAMMES.length; i++) {
       const programme = PROGRAMMES[i];
@@ -298,13 +284,13 @@ function read_filters () {
 
   const level_selected_dom = document.querySelectorAll("#level_filter li.selected");
   const level_id_selected = [];
-  function callback_add_levelID (dom_element) {
+  function callback_add_levelID(dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     level_id_selected.push(id_as_integer);
   }
   array_each(level_selected_dom, callback_add_levelID);
 
-  function test_function_level (programme) {
+  function test_function_level(programme) {
     return level_id_selected.includes(programme.levelID);
   }
   programmes = array_filter(programmes, test_function_level);
@@ -313,7 +299,7 @@ function read_filters () {
 
   const language_selected_dom = document.querySelectorAll("#language_filter li.selected");
   const language_id_selected = [];
-  function callback_add_languageID (dom_element) {
+  function callback_add_languageID(dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     language_id_selected.push(id_as_integer);
   }
@@ -321,7 +307,7 @@ function read_filters () {
 
 
 
-  function test_function_language (programme) {
+  function test_function_language(programme) {
     return language_id_selected.includes(programme.languageID);
   }
   programmes = array_filter(programmes, test_function_language);
@@ -330,7 +316,7 @@ function read_filters () {
 
   const subject_selected_dom = document.querySelectorAll("#subject_filter li.selected");
   const subject_id_selected = [];
-  function callback_add_subjectID (dom_element) {
+  function callback_add_subjectID(dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     subject_id_selected.push(id_as_integer);
   }
@@ -338,7 +324,7 @@ function read_filters () {
 
 
 
-  function test_function_subject (programme) {
+  function test_function_subject(programme) {
     return subject_id_selected.includes(programme.subjectID);
   }
   programmes = array_filter(programmes, test_function_subject);
@@ -347,11 +333,11 @@ function read_filters () {
 
   const search_string = document.querySelector("#search_field input").value;
   if (search_string !== "") {
-    function test_function (programme) {
+    function test_function(programme) {
       return programme.name.includes(search_string);
     }
     programmes = array_filter(programmes, test_function);
   }
 
   return programmes;
-}
+};
