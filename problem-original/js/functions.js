@@ -5,8 +5,6 @@ function click_filter_element(event) {
 
   const classes = ["selected", "unselected"]
   event.addEventListener("click", f1)
-
-
   function f1() {
     for (let i = 0; i < event.classList.length; i++) {
       if (event.classList[i] === classes[0]) {
