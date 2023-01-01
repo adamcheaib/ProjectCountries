@@ -40,8 +40,6 @@ function click_filter_element(event) {
 // G
 // CODE according to specification
 function create_filter_element(data) {
-
-
   // FUNGERAR!!!
   let create_tag = document.createElement(data.tag);
   let parent = document.querySelector(data.parent);
