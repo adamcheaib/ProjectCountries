@@ -123,7 +123,8 @@ function create_countries_cities_filters() {
      och id.
   2. Funktionen deklarar funktionen create_city som tar emot ett argument i form av ett objekt. Create_city
      använder sig av create_filter_element för att skapa en <li> som appendas till ett HTML-element.
-  3. 
+  3. create_countries_cities_filters använder sig av funktionen array_each för att kontrollera att det nya elementets data-attributs värde (dvs countryID) 
+     är det samma som elementet i arrayen
   */
 
 
@@ -138,7 +139,8 @@ function create_countries_cities_filters() {
     6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
         är CITIES och test_function som deklareras inuti funktionen array_filters.
     7. test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten 
-      som har använts i create_country och i test_function har var sin nyckel (city.countryID och country.id) som har samma värde. 
+      som har använts i create_country och i test_function har var sin nyckel (city.countryID och country.id) som har samma värde. Detta med hjälp av array_filter funktionen för att
+      uppfylla kraven som man har angett i test_function.
     */
     const dom = document.createElement("div");
     dom.classList.add("country");
@@ -163,9 +165,9 @@ function create_countries_cities_filters() {
     /*
             Create_city funktionen
     1. Funktionen tar emot ett objekt som argument
-    2. Funktionen deklarerar en variabel som använder create_filter_element och ett objekt och nycklar som argument som i sin tur skapar en <li>
+    2. Funktionen deklarerar en variabel som använder create_filter_element tillsammans med ett objekt och dess nycklar som argument som i sin tur skapar en <li>
        med klassen, text-innehåll och förälder som man anger som nycklar i argumentet.
-    3. Det nya elementet får attributet data-id som har samma värde som nyckeln "id" från objektet som har angivits som argument.
+    3. Det nya elementet får attributet data-id som har samma värde som nyckeln "id" från objektet som har angivits som argument till create_city.
     
     */
 
