@@ -39,13 +39,13 @@ function click_filter_element(event) {
 // CODE according to specification
 function create_filter_element(data) {
   // FUNGERAR!!!
-  let create_tag = document.createElement(data.tag);
+  let create_li = document.createElement("li");
   let parent = document.querySelector(data.parent);
-  create_tag.classList.add(data.class)
-  create_tag.textContent = data.content
-  parent.appendChild(create_tag);
-  click_filter_element(create_tag)
-  return create_tag
+  create_li.classList.add(data.class)
+  create_li.textContent = data.content
+  parent.appendChild(create_li);
+  click_filter_element(create_li)
+  return create_li
 }
 
 /*
@@ -117,19 +117,28 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters() {
+  /*
+        Create_countries_cities_filters
+  1. Funktionen deklarerar funktionen create_country som tar emot ett argument i form av ett objekt som i sin tur skapar en <div> med en <h1> och <ul> inuti och som får en klass
+     och id.
+  2. Funktionen deklarar funktionen create_city som tar emot ett argument i form av ett objekt. Create_city
+     använder sig av create_filter_element för att skapa en <li> som appendas till ett HTML-element.
+  3. 
+  */
 
 
   function create_country(country) {
     /*    Create_country funktionen
     1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
     2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" och "filter_container".
-    3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). Hade jag t.ex valt COUNTRIES[0] 
-        så hade div:en fått ID-nummer 0 eftersom första objektet i COUNTRIES-array är Spanien som har nyckeln id: 0.
+    3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). 
     4. Funktionen sedan appendar det nya DOM-elementet som barn till en <ul> som  är barn till #country_filters i HTML-filen.
     5. Funktionen lägger till två element inuti det nya DOM-elementet. I detta fallet så läggs till en <h1> och en <ul> inuti. H1:ans innehåll blir det samma som nyckeln "name" i 
         objektet som man har gett som argument. <ul> som har skapats inuti får classen "filter_list".
     6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
         är CITIES och test_function som deklareras inuti funktionen array_filters.
+    7. test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten 
+      som har använts i create_country och i test_function har var sin nyckel (city.countryID och country.id) som har samma värde. 
     */
     const dom = document.createElement("div");
     dom.classList.add("country");
@@ -153,10 +162,12 @@ function create_countries_cities_filters() {
   function create_city(city) {
     /*
             Create_city funktionen
-      1. test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten 
-      som har använts i create_country och i test_function har var sin nyckel som har samma värde.
-      2.  
-      */
+    1. Funktionen tar emot ett objekt som argument
+    2. Funktionen deklarerar en variabel som använder create_filter_element och ett objekt och nycklar som argument som i sin tur skapar en <li>
+       med klassen, text-innehåll och förälder som man anger som nycklar i argumentet.
+    3. Det nya elementet får attributet data-id som har samma värde som nyckeln "id" från objektet som har angivits som argument.
+    
+    */
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
