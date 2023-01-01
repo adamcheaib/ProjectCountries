@@ -12,7 +12,13 @@
 
 */
 
+<<<<<<< Updated upstream
 
+=======
+for (let i = 0; i < 2; i++) {
+  create_filter_element({ tag: "button", parent: "#wrapper", class: "selected", content: COUNTRIES[i].id })
+}
+>>>>>>> Stashed changes
 
 // Create Filter Elements
 create_levels_filter();

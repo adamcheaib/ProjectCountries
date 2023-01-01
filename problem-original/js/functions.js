@@ -107,7 +107,12 @@ function create_countries_cities_filters () {
       <h1>${country.name}</h1>
       <ul class="filter_list"></ul>
     `;
+<<<<<<< Updated upstream
     
+=======
+
+
+>>>>>>> Stashed changes
     const cities = array_filter(CITIES, test_function);
     function test_function (city) {
       return city.countryID === country.id;
@@ -115,7 +120,28 @@ function create_countries_cities_filters () {
 
     array_each(cities, create_city);
   }
+<<<<<<< Updated upstream
   function create_city (city) {
+=======
+
+  /* 
+   
+        Create_country funktionen
+  1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
+  2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" och "filter_container".
+  3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). Hade jag t.ex valt COUNTRIES[0] 
+      så hade div:en fått ID-nummer 0 eftersom första objektet i COUNTRIES-array är Spanien som har nyckeln id: 0.
+  4. Funktionen sedan appendar det nya DOM-elementet som barn till en <ul> som  är barn till #country_filters i HTML-filen.
+  5. Funktionen lägger till två element inuti det nya DOM-elementet. I detta fallet så läggs till en <h1> och en <ul> inuti. H1:ans innehåll blir det samma som nyckeln "name" i 
+      objektet som man har gett som argument. <ul> som har skapats inuti får classen "filter_list".
+  6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
+      är CITIES och test_function som deklareras inuti funktionen array_filters.
+  */
+
+
+
+  function create_city(city) {
+>>>>>>> Stashed changes
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
@@ -128,6 +154,13 @@ function create_countries_cities_filters () {
 
   array_each(COUNTRIES, create_country);
 }
+
+/*
+        Create_city funktionen
+  test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten som
+      har använts i create_country och i test_function har var sin nyckel som har samma värde.
+  8. 
+  */
 
 
 // G
