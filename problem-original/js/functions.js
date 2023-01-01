@@ -96,6 +96,8 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters() {
+
+
   function create_country(country) {
     /*    Create_country funktionen
     1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
