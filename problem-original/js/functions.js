@@ -132,9 +132,9 @@ function create_countries_cities_filters() {
   function create_city(city) {
     /*
             Create_city funktionen
-      test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten som
-          har använts i create_country och i test_function har var sin nyckel som har samma värde.
-      8. 
+      1. test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten 
+      som har använts i create_country och i test_function har var sin nyckel som har samma värde.
+      2.  
       */
 
     const dom = create_filter_element({
