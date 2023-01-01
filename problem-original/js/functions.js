@@ -26,13 +26,13 @@ function click_filter_element(event) {
 // CODE according to specification
 function create_filter_element(data) {
   // FUNGERAR!!!
-  let create_tag = document.createElement(data.tag);
+  let create_li = document.createElement("li");
   let parent = document.querySelector(data.parent);
-  create_tag.classList.add(data.class)
-  create_tag.textContent = data.content
-  parent.appendChild(create_tag);
-  click_filter_element(create_tag)
-  return create_tag
+  create_li.classList.add(data.class)
+  create_li.textContent = data.content
+  parent.appendChild(create_li);
+  click_filter_element(create_li)
+  return create_li
 }
 /*
   ARGUMENTS
