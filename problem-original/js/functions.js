@@ -2,7 +2,7 @@
 // G
 // CODE According to specification
 function click_filter_element(event) {
-
+  // FUNGERAR!!!
   const classes = ["selected", "unselected"]
   event.addEventListener("click", f1)
   function f1() {
