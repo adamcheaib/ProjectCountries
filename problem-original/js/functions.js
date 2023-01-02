@@ -240,6 +240,8 @@ function create_levels_filter() {
     dom_level.dataset.id = LEVELS[i].id;
   };
 
+  // SPECIFIKATIONER TILL VAD FUNKTIONEN GÖR!
+
   for (let i = 0; i < SUBJECTS.length; i++) {
     let dom_subject = create_filter_element({
       parent: "#subject_filter",
