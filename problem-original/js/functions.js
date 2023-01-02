@@ -280,17 +280,31 @@ function create_levels_filter() {
 // CODE according to specifications
 function create_programme(programme) {
 
-  let create_info = document.createElement("div");
-  create_info.classList.add("programme");
-  create_info.innerHTML = `<h1>${programme.name}</h1>
-  <ul>
-  <li>${UNIVERSITIES[0].name}</li>
-  <li>${CITIES[0].name}, ${COUNTRIES[0].name}</li>
-  <li>${LEVELS[0].name}, ${SUBJECTS[0].name}, ${LANGUAGES[0].name}</li>
-  </ul>`;
-  create_info.style.backgroundImage = `url(./media/geo_images/${CITIES[0].imagesNormal[0]})`
-  let container = document.querySelector("#wrapper");
-  container.appendChild(create_info)
+  // Gör istället att den bara skapar en och sen du loopar funktionen
+  // Använd array_funktioner för att kontrollera att levelID i PROGRAMMES är det samma som ID i LEVELS för att få till de rätt.
+
+  let create_parent = document.createElement("div");
+  let create_li = document.createElement("li");
+  create_parent.classList.add("programme")
+  let real_parent = document.querySelector("#programmes ul");
+  create_parent.style.backgroundImage = `url(./media/geo_images/${CITIES[0].imagesNormal[0]})`;
+  create_li.innerHTML = `<h1>${programme.name}</h1> <p>${UNIVERSITIES[0].name}</p> <p>${CITIES[0].name}`
+
+  create_parent.appendChild(create_li);
+  real_parent.appendChild(create_parent)
+
+
+  // for (let i = 0; i < CITIES.length; i++) {
+  //   let create_info = document.createElement("li");
+  //   create_info.classList.add("programme");
+  //   create_info.innerHTML = `< li ><h1>${PROGRAMMES[i].name}</h1><p>${UNIVERSITIES[i].name}</p><p>${CITIES[i].name}, </p></li > `;
+  //   create_info.style.backgroundImage = `url(./media/geo_images / ${ CITIES[i].imagesNormal[0] })`
+  //   let container = document.querySelector("#programmes ul");
+  //   container.appendChild(create_info);
+  // };
+
+  // COUNTRIES, LEVELS, and SUBJECT seperate loops
+
 
 
 
