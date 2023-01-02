@@ -280,6 +280,20 @@ function create_levels_filter() {
 // CODE according to specifications
 function create_programme(programme) {
 
+  let create_info = document.createElement("div");
+  create_info.classList.add("programme");
+  create_info.innerHTML = `<h1>${programme.name}</h1>
+  <ul>
+  <li>${UNIVERSITIES[0].name}</li>
+  <li>${CITIES[0].name}, ${COUNTRIES[0].name}</li>
+  <li>${LEVELS[0].name}, ${SUBJECTS[0].name}, ${LANGUAGES[0].name}</li>
+  </ul>`;
+  create_info.style.backgroundImage = `url(./media/geo_images/${CITIES[0].imagesNormal[0]})`
+  let container = document.querySelector("#wrapper");
+  container.appendChild(create_info)
+
+
+
   /*
  
     ARGUMENT
