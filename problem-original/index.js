@@ -12,10 +12,6 @@
 
 */
 
-for (let i = 0; i < 2; i++) {
-  create_filter_element({ parent: "#wrapper", class: "selected", content: COUNTRIES[i].id })
-}
-
 // Create Filter Elements
 create_levels_filter();
 create_subjects_filter();
