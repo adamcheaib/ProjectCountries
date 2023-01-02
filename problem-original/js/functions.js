@@ -191,6 +191,21 @@ function create_countries_cities_filters() {
 //    Abstract them to one function, and write the specification of that function.
 function create_levels_filter() {
 
+  /*
+  
+    ARGUMENTS
+      The function does not take any arguments.
+  
+    SIDE EFFECTS
+      This function creates list-item elements with and id-number as attribute and 
+      text content from the LANGUAGES, LEVELS, and SUBJECTS arrays. The function 
+      then appends the list-items as children to the unordered-lists within the different 
+      containers i.e level_filter, subject_filter, and language_filter.
+  
+    NO RETURN VALUE
+  
+  */
+
 
   // function create_level(level) {
   //     const dom = create_filter_element({
