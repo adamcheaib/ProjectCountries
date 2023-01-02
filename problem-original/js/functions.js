@@ -190,7 +190,7 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 function create_levels_filter() {
-
+  // FUNGERAR!!!
   /*
   
     ARGUMENTS
@@ -206,60 +206,18 @@ function create_levels_filter() {
   
   */
 
-
-  // function create_level(level) {
-  //     const dom = create_filter_element({
-  //       parent: document.querySelector("#level_filter > ul"),
-  //       class: "selected",
-  //       textContent: level.name,
-  //     });
-  //     dom.dataset.id = level.id;
-  //   }
-  //   array_each(LEVELS, create_level);
-  // }
-
-
-  // // // // Create Subjects Filter
-  // function create_subjects_filter() {
-  //   function create_subject(subject) {
-  //     const dom = create_filter_element({
-  //       parent: document.querySelector("#subject_filter > ul"),
-  //       class: "selected",
-  //       textContent: subject.name,
-  //     });
-  //     dom.dataset.id = subject.id;
-  //   }
-  //   array_each(SUBJECTS, create_subject);
-  // }
-
-
-  // // // // Create Search Field
-  // function create_language_filter() {
-  //   function create_element(data) {
-  //     const dom = create_filter_element({
-  //       parent: document.querySelector("#language_filter > ul"),
-  //       class: "selected",
-  //       textContent: data.name,
-  //     });
-  //     dom.dataset.id = data.id;
-  //   }
-  //   array_each(LANGUAGES, create_element);
-  // }
-
   for (let i = 0; i < LEVELS.length; i++) {
     let dom_level = create_filter_element({
-      parent: "#level_filter",
+      parent: "#level_filter ul",
       class: "selected",
       content: LEVELS[i].name,
     });
     dom_level.dataset.id = LEVELS[i].id;
   };
 
-  // SPECIFIKATIONER TILL VAD FUNKTIONEN GÖR!
-
   for (let i = 0; i < SUBJECTS.length; i++) {
     let dom_subject = create_filter_element({
-      parent: "#subject_filter",
+      parent: "#subject_filter ul",
       class: "selected",
       content: SUBJECTS[i].name,
     });
@@ -268,13 +226,53 @@ function create_levels_filter() {
 
   for (let i = 0; i < LANGUAGES.length; i++) {
     let dom_language = create_filter_element({
-      parent: "#language_filter",
+      parent: "#language_filter ul",
       class: "selected",
       content: LANGUAGES[i].name,
     });
     dom_language.dataset.id = LANGUAGES[i].id;
   };
 };
+
+// function create_level(level) {
+//     const dom = create_filter_element({
+//       parent: document.querySelector("#level_filter > ul"),
+//       class: "selected",
+//       textContent: level.name,
+//     });
+//     dom.dataset.id = level.id;
+//   }
+//   array_each(LEVELS, create_level);
+// }
+
+
+// // // // Create Subjects Filter
+// function create_subjects_filter() {
+//   function create_subject(subject) {
+//     const dom = create_filter_element({
+//       parent: document.querySelector("#subject_filter > ul"),
+//       class: "selected",
+//       textContent: subject.name,
+//     });
+//     dom.dataset.id = subject.id;
+//   }
+//   array_each(SUBJECTS, create_subject);
+// }
+
+
+// // // // Create Search Field
+// function create_language_filter() {
+//   function create_element(data) {
+//     const dom = create_filter_element({
+//       parent: document.querySelector("#language_filter > ul"),
+//       class: "selected",
+//       textContent: data.name,
+//     });
+//     dom.dataset.id = data.id;
+//   }
+//   array_each(LANGUAGES, create_element);
+// }
+
 
 
 // G / VG (see details in specification)
