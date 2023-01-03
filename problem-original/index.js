@@ -12,7 +12,7 @@
 
 */
 
-create_programme(PROGRAMMES[2])
+create_programme(PROGRAMMES[0])
 
 // Create Filter Elements
 create_levels_filter();

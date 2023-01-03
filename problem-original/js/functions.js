@@ -280,21 +280,20 @@ function create_levels_filter() {
 // CODE according to specifications
 function create_programme(programme) {
 
-  function city_control(a) {
-    console.log(a.cityID === CITIES[0].id)
-  };
-
-
 
 
   // Gör istället att den bara skapar en och sen du loopar funktionen
   // Använd array_funktioner för att kontrollera att levelID i PROGRAMMES är det samma som ID i LEVELS för att få till de rätt.
-  let real_parent = document.querySelector("#programmes ul");
 
+  // HTML-skaparen färdig.
+  // Fixa funktion för informationen ska stämma
+  let real_parent = document.querySelector("#programmes ul");
   let create_box = document.createElement("div");
   let create_li = document.createElement("li");
-  create_li.textContent = `<h1>${programme.name}</h1><p>${array_filter(UNIVERSITIES, city_control)}</p>`
-
+  create_box.classList.add("programme")
+  create_li.innerHTML = `<h1>${programme.name}</h1><p>${UNIVERSITIES[programme.universityID].name}</p><p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES}</p><p>Level, Subject, Language</p>`
+  create_box.appendChild(create_li);
+  real_parent.appendChild(create_box)
 
   // COUNTRIES, LEVELS, and SUBJECT seperate loops
 
