@@ -282,16 +282,19 @@ function create_programme(programme) {
 
   // Gör istället att den bara skapar en och sen du loopar funktionen
   // Använd array_funktioner för att kontrollera att levelID i PROGRAMMES är det samma som ID i LEVELS för att få till de rätt.
+  let real_parent = document.querySelector("#programmes ul")
 
-  let create_parent = document.createElement("div");
-  let create_li = document.createElement("li");
-  create_parent.classList.add("programme")
-  let real_parent = document.querySelector("#programmes ul");
-  create_parent.style.backgroundImage = `url(./media/geo_images/${CITIES[0].imagesNormal[0]})`;
-  create_li.innerHTML = `<h1>${programme.name}</h1> <p>${UNIVERSITIES[0].name}</p> <p>${CITIES[0].name}`
+  for (let i = 0; i < PROGRAMMES.length; i++) {
+    let create_box = document.createElement("div");
+    let create_li = document.createElement("li");
+    if (programme[1].levelID === LEVELS[i].id) {
+      create_li.textContent = `${programme.name}`
+    }
 
-  create_parent.appendChild(create_li);
-  real_parent.appendChild(create_parent)
+    create_box.appendChild(create_li);
+    real_parent.appendChild(create_box);
+  }
+
 
 
   // for (let i = 0; i < CITIES.length; i++) {
@@ -329,7 +332,7 @@ function create_programme(programme) {
  
   */
 
-}
+};
 
 
 // G
