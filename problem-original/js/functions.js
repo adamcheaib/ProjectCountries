@@ -280,8 +280,6 @@ function create_levels_filter() {
 // CODE according to specifications
 function create_programme(programme) {
 
-  console.log(COUNTRIES[0])
-
   // Gör istället att den bara skapar en och sen du loopar funktionen
   // Använd array_funktioner för att kontrollera att levelID i PROGRAMMES är det samma som ID i LEVELS för att få till de rätt.
 
