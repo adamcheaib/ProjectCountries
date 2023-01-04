@@ -297,8 +297,6 @@ function create_programme(programme) {
   create_li.innerHTML = `<h1>${programme.name}</h1><p>${UNIVERSITIES[programme.universityID].name}</p><p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name}<p>${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>`
   create_box.appendChild(create_li);
   real_parent.appendChild(create_box)
-
-
   /*
  
     ARGUMENT
@@ -326,6 +324,8 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
+
+
 
   /*
       NO ARGUMENTS
