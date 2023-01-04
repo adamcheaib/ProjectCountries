@@ -335,7 +335,7 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-  console.log(event.target.value)
+
 
 
   /*
