@@ -40,7 +40,7 @@ function click_filter_element(event) {
 function create_filter_element(data) {
   // FUNGERAR!!!
   let create_li = document.createElement("li");
-  let parent = document.querySelector(data.parent);
+  let parent = data.parent;
   create_li.classList.add(data.class)
   create_li.textContent = data.content
   parent.appendChild(create_li);
@@ -219,7 +219,7 @@ function create_levels_filter() {
 
   for (let i = 0; i < LEVELS.length; i++) {
     let dom_level = create_filter_element({
-      parent: "#level_filter ul",
+      parent: document.querySelector("#level_filter ul"),
       class: "selected",
       content: LEVELS[i].name,
     });
@@ -229,7 +229,7 @@ function create_levels_filter() {
 
   for (let i = 0; i < SUBJECTS.length; i++) {
     let dom_subject = create_filter_element({
-      parent: "#subject_filter ul",
+      parent: document.querySelector("#subject_filter ul"),
       class: "selected",
       content: SUBJECTS[i].name,
     });
@@ -238,7 +238,7 @@ function create_levels_filter() {
 
   for (let i = 0; i < LANGUAGES.length; i++) {
     let dom_language = create_filter_element({
-      parent: "#language_filter ul",
+      parent: document.querySelector("#language_filter ul"),
       class: "selected",
       content: LANGUAGES[i].name,
     });
