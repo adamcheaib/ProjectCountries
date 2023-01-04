@@ -119,25 +119,33 @@ function toggle_cities(event) {
 function create_countries_cities_filters() {
   /*
         Create_countries_cities_filters
-  1. Funktionen deklarerar funktionen create_country som tar emot ett argument i form av ett objekt som i sin tur skapar en <div> med en <h1> och <ul> inuti och som får en klass
-     och id.
-  2. Funktionen deklarar funktionen create_city som tar emot ett argument i form av ett objekt. Create_city
-     använder sig av create_filter_element för att skapa en <li> som appendas till ett HTML-element.
-  3. create_countries_cities_filters använder sig av funktionen array_each för att kontrollera att det nya elementets data-attributs värde (dvs countryID) 
-     är det samma som elementet i arrayen
+  1. Funktionen deklarerar funktionen create_country som tar emot ett argument i form av ett objekt
+     som i sin tur skapar en <div> med en <h1> och <ul> inuti och som får en klass och id.
+  2. Funktionen deklarar funktionen create_city som tar emot ett argument i form av ett objekt. 
+    Create_city använder sig av create_filter_element för att skapa en <li> som appendas till ett HTML-element.
+  3. create_countries_cities_filters använder sig av funktionen array_each för att kontrollera att
+     det nya elementets data-attributs värde (dvs countryID) är det samma som elementet i arrayen
   */
 
 
   function create_country(country) {
     /*    Create_country funktionen
     1. Funktionen tar emot ett objekt som argument (i detta fallet från database.js).
-    2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" och "filter_container".
-    3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och ett ID-nummer från objektets nyckel: id (från databasen). 
+    
+    2. Funktionen sen skapar ett DOM-element (en "div") element som sedan får klasserna "country" 
+       och "filter_container".
+    
+    3. DOM-elementet som har skapats får sedan ett ID som består av strängen "country_" och 
+       ett ID-nummer från objektets nyckel: id (från databasen). 
+    
     4. Funktionen sedan appendar det nya DOM-elementet som barn till en <ul> som  är barn till #country_filters i HTML-filen.
+    
     5. Funktionen lägger till två element inuti det nya DOM-elementet. I detta fallet så läggs till en <h1> och en <ul> inuti. H1:ans innehåll blir det samma som nyckeln "name" i 
         objektet som man har gett som argument. <ul> som har skapats inuti får classen "filter_list".
+    
     6. Funktionen deklarerar en variabel som använder sig av funktionen array_filter som tar emot en array och en funktion som argument. Arrayen och funktionen som används som argument
         är CITIES och test_function som deklareras inuti funktionen array_filters.
+    
     7. Test_function tar emot ett objekt som argument (i detta fallet ett objekt från CITIES-array) och sedan returnerar ett Booleskt-värde genom att kontrollera om både objekten 
         som har använts i create_country och i test_function har var sin nyckel (city.countryID och country.id) med samma värde. Detta med hjälp av array_filter funktionen för att
         uppfylla kraven som man har angett i test_function.
@@ -164,9 +172,12 @@ function create_countries_cities_filters() {
   function create_city(city) {
     /*
             Create_city funktionen
+    
     1. Funktionen tar emot ett objekt som argument.
+    
     2. Funktionen deklarerar en variabel som använder create_filter_element tillsammans med ett objekt och dess nycklar som argument som i sin tur skapar en <li>
        med klassen, text-innehåll och förälder som man anger som nycklar i argumentet.
+    
     3. Det nya elementet får attributet data-id som har samma värde som nyckeln "id" från objektet som har angivits som argument till create_city.
     
     */
@@ -324,7 +335,7 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-
+  console.log(event.target.value)
 
 
   /*
