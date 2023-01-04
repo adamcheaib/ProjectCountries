@@ -42,7 +42,7 @@ function create_filter_element(data) {
   let create_li = document.createElement("li");
   let parent = document.querySelector(data.parent);
   create_li.classList.add(data.class)
-  create_li.textContent = data.content
+  create_li.textContent = data.textContent
   parent.appendChild(create_li);
   click_filter_element(create_li)
   return create_li
@@ -210,7 +210,7 @@ function create_levels_filter() {
     let dom_level = create_filter_element({
       parent: "#level_filter ul",
       class: "selected",
-      content: LEVELS[i].name,
+      textContent: LEVELS[i].name,
     });
     dom_level.dataset.id = LEVELS[i].id;
   };
@@ -220,7 +220,7 @@ function create_levels_filter() {
     let dom_subject = create_filter_element({
       parent: "#subject_filter ul",
       class: "selected",
-      content: SUBJECTS[i].name,
+      textContent: SUBJECTS[i].name,
     });
     dom_subject.dataset.id = SUBJECTS[i].id;
   };
@@ -229,7 +229,7 @@ function create_levels_filter() {
     let dom_language = create_filter_element({
       parent: "#language_filter ul",
       class: "selected",
-      content: LANGUAGES[i].name,
+      textContent: LANGUAGES[i].name,
     });
     dom_language.dataset.id = LANGUAGES[i].id;
   };
