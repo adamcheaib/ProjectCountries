@@ -42,7 +42,7 @@ function create_filter_element(data) {
   let create_li = document.createElement("li");
   let parent = document.querySelector(data.parent);
   create_li.classList.add(data.class)
-  create_li.textContent = data.content
+  create_li.textContent = data.textContent
   parent.appendChild(create_li);
   click_filter_element(create_li)
   return create_li
