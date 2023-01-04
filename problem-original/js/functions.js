@@ -44,7 +44,7 @@ function create_filter_element(data) {
   let create_tag = document.createElement(data.tag);
   let parent = data.parent;
   create_tag.classList.add(data.class)
-  create_tag.textContent = data.content
+  create_tag.textContent = data.textContent
   parent.appendChild(create_tag);
   click_filter_element(create_tag)
   return create_tag
