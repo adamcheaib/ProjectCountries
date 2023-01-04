@@ -282,21 +282,21 @@ function create_programme(programme) {
 
   // Gör istället att den bara skapar en och sen du loopar funktionen
   // Använd array_funktioner för att kontrollera att levelID i PROGRAMMES är det samma som ID i LEVELS för att få till de rätt.
+  function get_random_number(max, min = 0) {
+    // Returns a random number between min (inclusive) and max (exclusive)
+    return min + Math.floor(max * Math.random());
+  }
 
   // HTML-skaparen färdig.
   // Fixa funktion för informationen ska stämma
   let real_parent = document.querySelector("#programmes ul");
   let create_box = document.createElement("div");
   let create_li = document.createElement("li");
-  create_box.style.backgroundImage = `url(./media/geo_images/${})`
-  create_box.classList.add("programme")                        // UNIVERSITIES[0].name                    //CITIES[UNIVERSITIES[0].cityID(0).name i.e CITIES[0].name   // ${COUNTRIES[0]
+  create_box.style.backgroundImage = `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`
+  create_box.classList.add("programme");
   create_li.innerHTML = `<h1>${programme.name}</h1><p>${UNIVERSITIES[programme.universityID].name}</p><p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name}<p>${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>`
   create_box.appendChild(create_li);
   real_parent.appendChild(create_box)
-
-  // COUNTRIES, LEVELS, and SUBJECT seperate loops
-
-
 
 
   /*
