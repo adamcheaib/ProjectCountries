@@ -42,13 +42,13 @@ function click_filter_element(event) {
 function create_filter_element(data) {
   // FUNGERAR!!!
   let create_tag = document.createElement(data.tag);
-  let parent = document.querySelector(data.parent);
+  let parent = data.parent;
   create_tag.classList.add(data.class)
   create_tag.textContent = data.content
   parent.appendChild(create_tag);
   click_filter_element(create_tag)
   return create_tag
-}
+};
 
 /*
   ARGUMENTS
