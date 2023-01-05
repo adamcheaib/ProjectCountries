@@ -337,8 +337,24 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
+  let selected_filters = document.querySelectorAll(".selected");
+  let unselected_filters = document.querySelectorAll(".unselected");
+  for (let i = 0; i < selected_filters.length; i++) {
+    if (selected_filters[i].textContent === UNIVERSITIES[read_filters()[i].name].city)
+      console.log("Dance")
+  }
+  console.log(unselected_filters)
+  console.log(read_filters(city_sele))
+  console.log(UNIVERSITIES[read_filters()[11].universityID].name)
 
-  console.log(read_filters()[0].name)
+  /*
+  Att komma ihåg till imorgon: 
+    1. read_filter() funktionen skannar allting inuti dokumentet <-- därför kan den KANSKE behövas användas som argument i vissa fall GÅ IGENOM OCH TESTA FÖR ATT SE
+    2. selected_filters och unselected_filters väljer alla objekt i en nodelist som har klassen .selected och .unselected
+    3. Jag måste nu använda mig av en if-statement för att se till så att när jag klickar på något, den skannar igenom alla objekt i read_filter() och sedan kontrollera om det finns samma.
+    4. Om det är false så gör jag display:none på dem som inte har en nyckel med samma värde inuti.
+  */
+
 
 
   /*
