@@ -337,10 +337,12 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-  let search_bar = document.querySelector("#search_field");
-  console.log(search_bar.value)
+
+  console.log(read_filters()[0].name)
+
 
   /*
+ 
       NO ARGUMENTS
  
       SIDE EFFECTS
@@ -365,6 +367,8 @@ function update_programmes() {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters() {
+
+  // The function returns an array with the items that fulfill the conditions!
 
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
 

@@ -12,9 +12,6 @@
 
 */
 
-console.log(read_filters())
-
-
 for (let i = 0; i < PROGRAMMES.length; i++) {
   create_programme(PROGRAMMES[i])
 }
