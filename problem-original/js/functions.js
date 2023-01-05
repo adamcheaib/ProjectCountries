@@ -305,7 +305,9 @@ function create_programme(programme) {
   let create_li = document.createElement("li");
   create_box.style.backgroundImage = `url(./media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal.length, 0)]}`
   create_box.classList.add("programme");
-  create_li.innerHTML = `<h1>${programme.name}</h1><p>${UNIVERSITIES[programme.universityID].name}</p><p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name}<p>${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>`
+  create_li.innerHTML = `<h1>${programme.name}</h1><p>${UNIVERSITIES[programme.universityID].name}</p>
+  <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name}</p>
+  <p>${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>`
   create_box.appendChild(create_li);
   real_parent.appendChild(create_box)
   /*
@@ -335,8 +337,8 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-
-
+  let search_bar = document.querySelector("#search_field");
+  console.log(search_bar.value)
 
   /*
       NO ARGUMENTS
@@ -373,6 +375,14 @@ function read_filters() {
   }
   array_each(city_selected_dom, callback_add_cityID);
 
+  // 1. Selects all the <li> elements within #country_filter with the class "selected".
+  // 2. Creates an array that will contain all the elements with the class .selected.
+  // 3. Creates a function that sets their data as their id from the database.
+  // 4. The function then adds the id number in the previously created array
+  // 5. Uses array_each on the nodelist of all <li> elements and adds their id number as data value
+  // and adds the id to the city_id_selected array.
+
+
   const universities = [];
   for (let i = 0; i < city_id_selected.length; i++) {
     const city_id = city_id_selected[i];
@@ -382,7 +392,13 @@ function read_filters() {
         universities.push(university);
       }
     }
-  }
+  };
+
+  // Creates an array for universities.
+  // Creates a variable for the a city id that has the value of each id from city_id_selected array
+  // Declares a variable university that has the value of each element in UNIVERSITIES array's id.
+  // If the university.cityID is the same as the city_id (from the selected city array) then it 
+  // adds the id to the university array.
 
   let programmes = [];
   function callback_add_programmes(university) {
@@ -396,7 +412,15 @@ function read_filters() {
   }
   array_each(universities, callback_add_programmes);
 
+  // Creates an array called programmes.
+  // Declares a variable that sets the argument's id (university as argument) as its value.
+  // Creates a loop that declares a variable programme that contains an element from the
+  // PROGRAMMES-array. The loop goes through each element's key "universityID". 
+  // The function controls that if the elements in PROGRAMMES contain the same id as university_id.
+  // If they do, they are added to the programmes-array.
 
+  /* -----------------------------------------------------------------------------------------------
+                Level, Subject, Language filters */
 
   const level_selected_dom = document.querySelectorAll("#level_filter li.selected");
   const level_id_selected = [];

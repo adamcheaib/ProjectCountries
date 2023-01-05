@@ -12,6 +12,9 @@
 
 */
 
+console.log(read_filters())
+
+
 for (let i = 0; i < PROGRAMMES.length; i++) {
   create_programme(PROGRAMMES[i])
 }
@@ -28,7 +31,6 @@ document.querySelector("#search_field button").addEventListener("click", update_
 
 // Initialise programmes list by calling relevant function
 update_programmes();
-
 
 // VG
 // Add Interaction of filter containers (select-deselect all filters in the container)
