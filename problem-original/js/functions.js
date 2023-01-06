@@ -310,6 +310,7 @@ function create_programme(programme) {
   <p>${LEVELS[programme.levelID - 1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>`
   create_box.appendChild(create_li);
   real_parent.appendChild(create_box)
+
   /*
  
     ARGUMENT
@@ -337,16 +338,11 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
-  let selected_filters = document.querySelectorAll(".selected");
-  let unselected_filters = document.querySelectorAll(".unselected");
-  for (let i = 0; i < selected_filters.length; i++) {
-    if (selected_filters[i].textContent === UNIVERSITIES[read_filters()[i].name].city)
-      console.log("Dance")
-  }
-  console.log(unselected_filters)
-  console.log(read_filters(city_sele))
-  console.log(UNIVERSITIES[read_filters()[11].universityID].name)
 
+
+  for (let i = 0; i < PROGRAMMES.length; i++) {
+    create_programme(read_filters()[i]);
+  };
   /*
   Att komma ihåg till imorgon: 
     1. read_filter() funktionen skannar allting inuti dokumentet <-- därför kan den KANSKE behövas användas som argument i vissa fall GÅ IGENOM OCH TESTA FÖR ATT SE
@@ -371,8 +367,8 @@ function update_programmes() {
       NO RETURN VALUE
  
   */
-
 }
+
 
 
 // G
@@ -395,12 +391,22 @@ function read_filters() {
   }
   array_each(city_selected_dom, callback_add_cityID);
 
-  // 1. Selects all the <li> elements within #country_filter with the class "selected".
-  // 2. Creates an array that will contain all the elements with the class .selected.
-  // 3. Creates a function that sets their data as their id from the database.
-  // 4. The function then adds the id number in the previously created array
-  // 5. Uses array_each on the nodelist of all <li> elements and adds their id number as data value
-  // and adds the id to the city_id_selected array.
+  /*
+  
+  Sammanfattning:
+  
+  1. Deklarerar en variable som selekterar alla <li> inuti #country_filter (Blir en NodeList)
+  2. Deklarar en array dvs city_id_selected
+  3. Deklarerar en funktion (callback_add_cityID) som sparar värdet av argumentets 
+  nyckel "id" och lägger till den i arrayen id_as_integer.
+  4. Använder array_each för city_selected_dom och sedan applicerar callback_add_cityID
+  
+  Kortfattning: 
+  1. city_selected_dom =  <li .selected> from #country_filter
+  2. city_id_selected = [alla nycklar cityID]
+  3. array_each(city_selected_dom, callback_add_cityID) --> city_id_selected starts getting filled up. 
+  
+  */
 
 
   const universities = [];
