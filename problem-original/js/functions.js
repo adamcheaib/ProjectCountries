@@ -9,10 +9,13 @@ function click_filter_element(event) {
     for (let i = 0; i < event.classList.length; i++) {
       if (event.classList[i] === classes[0]) {
         event.classList.toggle(classes[1])
+        update_programmes
       };
 
       if (event.classList[i] === classes[1]) {
         event.classList.toggle(classes[0])
+
+        update_programmes
       };
     }
   };
@@ -208,7 +211,7 @@ function create_levels_filter() {
       The function does not take any arguments.
   
     SIDE EFFECTS
-      This function creates list-item elements with and id-number as attribute and 
+      This function creates list-item elements with an id-number as attribute and 
       text content from the LANGUAGES, LEVELS, and SUBJECTS arrays. The function 
       then appends the list-items as children to the unordered-lists within the different 
       containers i.e level_filter, subject_filter, and language_filter.
@@ -338,11 +341,12 @@ function create_programme(programme) {
 // G
 // CODE according to the specification
 function update_programmes() {
+  let old_programs = document.querySelector("#programmes ul");
+  old_programs.innerHTML = ""
+  let program_filter = read_filters()
+  array_each(program_filter, create_programme)
 
-
-  for (let i = 0; i < PROGRAMMES.length; i++) {
-    create_programme(read_filters()[i]);
-  };
+  // remove klassen .programme för att få något att bli osynligt.
   /*
   Att komma ihåg till imorgon: 
     1. read_filter() funktionen skannar allting inuti dokumentet <-- därför kan den KANSKE behövas användas som argument i vissa fall GÅ IGENOM OCH TESTA FÖR ATT SE
